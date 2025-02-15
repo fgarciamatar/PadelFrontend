@@ -1,0 +1,52 @@
+/* CourtSelector.module.css */
+
+/* Contenedor principal con grid de 3 columnas */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem; 
+    max-width: 600px;       /* Ancho máximo para que no crezca demasiado */
+    margin: 1.5em auto;     /* Margen arriba/abajo de 1.5em, centrado horizontalmente */
+    overflow-x: hidden;
+  
+  }
+  
+  /* Estilo base para los botones */
+  .button {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 2em;
+    transition: all 0.2s ease-in-out;
+    background-color: #374151;
+    color: #d1d5db;
+    cursor: pointer;
+    border: none;
+  }
+  
+  /* Efecto hover */
+  .button:hover {
+    background-color: #4b5563;
+  }
+  
+  /* Estilo para la cancha seleccionada */
+  .selected {
+    background-color: #1d4ed8;
+    color: #ffffff;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 1024px) {
+    .container {
+      max-width: 100%;    /* O un ancho menor, si deseas */
+      margin: 0.8em auto; /* Mantén centrado horizontal */
+    }
+    .button {
+      padding: 1.2rem;
+      font-weight: 500;
+      font-size: 1em;
+    }
+  }
+  
+ 
+  
