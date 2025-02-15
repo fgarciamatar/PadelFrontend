@@ -1,0 +1,14 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+  }
+  
+  .ball {
+    font-size: 50px; /* Tamaño del icono */
+    color: #ccff33; /* Verde como pelota de tenis */
+    position: absolute;
+  }
+  

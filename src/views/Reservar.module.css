@@ -1,62 +1,78 @@
+/* Estilos Globales */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  .grid {
-    display: grid;
-    gap: 2rem;
-  }
-  
-  .card {
-    padding: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    background-color: #2d2d2d;
-    color: white;
-  }
-  
-  .title {
-    font-size: 1.5rem;
-    font-family: 'Handlee', cursive;
-    color: #ffffff;
-    margin-bottom: 1rem;
-  }
-  
-  .min-h-screen {
-    min-height: 100vh;
-  }
-  
-  @media (min-width: 768px) {
-    .grid-cols-4 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
+.grid {
+  display: grid;
+  gap: 2rem;
+}
 
+.card {
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-family: 'Handlee', cursive;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Estilos para el mensaje de selección */
+.containerh1 {
+  background-color: #374151;
+  color: #fff;
+  min-height: 10vh; /* Ocupa todo el alto de la ventana */
+  padding: 1rem;
+  max-width: 1200px; /* Contenedor más ancho */
+  margin: 0 auto;    /* Centramos el contenedor */
+  text-align: center;
+  border-radius: 1em;
+}
+
+@media (max-width: 1024px) {
   .containerh1 {
-    background-color: #374151;
-    color: #fff;
-    min-height: 10vh; /* Ocupa todo el alto de la ventana */
+    min-height: 5vh; 
     padding: 1rem;
     max-width: 1200px; /* Contenedor más ancho */
     margin: 0 auto;    /* Centramos el contenedor */
     text-align: center;
-    border-radius: 1em;
+    border-radius: 0.8em;
   }
+  h1 {
+    font-size: 1em;
+  }
+}
 
-  @media (max-width: 1024px) {
-    .containerh1 {
-      min-height: 5vh; 
-      padding: 1rem;
-      max-width: 1200px; /* Contenedor más ancho */
-      margin: 0 auto;    /* Centramos el contenedor */
-      text-align: center;
-      border-radius: 0.8em;
-    }
-    h1{
-      font-size: 1em;
-    }
-  }
-  
+/* Estilos específicos del componente Reservar */
+.mainContainer {
+  position: relative; /* Para que el overlay se posicione relativo a este contenedor */
+}
+
+/* Overlay para mostrar las pelotas encima de los demás componentes */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;         /* Valor alto para que quede por encima de todo */
+  pointer-events: none; /* Para que no interfiera con la interacción de los demás elementos */
+}

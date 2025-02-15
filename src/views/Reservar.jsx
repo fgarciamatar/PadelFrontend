@@ -6,19 +6,20 @@ import CourtSelector from "../components/CourtSelector";
 import TimeSlots from "../components/TimeSlots";
 import { fetchTurnosAction } from "../Redux/TurnosActions";
 import styles from "./Reservar.module.css";
+import BouncingBalls from "../components/BouncingBall"; // Asegúrate de tener el componente correcto
 
 export default function Reservar() {
   const dispatch = useDispatch(); 
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedCourt, setSelectedCourt] = useState(null);
-  const {loading, error } = useSelector((state) => state.turnos); 
+  const { loading, error } = useSelector((state) => state.turnos); 
 
   useEffect(() => {
     dispatch(fetchTurnosAction());
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <Calendar selectedDate={selectedDate} onSelectDate={setSelectedDate} />
       <CourtSelector selectedCourt={selectedCourt} onSelectCourt={setSelectedCourt} />
 
@@ -28,12 +29,11 @@ export default function Reservar() {
 
       {selectedDate && selectedCourt ? (
         <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 1.5, ease: "linear" }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 1.5, ease: "linear" }}
         >
-   
           <TimeSlots selectedDate={selectedDate} selectedCourt={selectedCourt} />
         </motion.div>
       ) : (
@@ -42,6 +42,12 @@ export default function Reservar() {
         </div>
       )}
 
+      {/* Si no se ha seleccionado fecha y/o cancha, mostramos las pelotas por encima */}
+      {(!selectedDate || !selectedCourt) && (
+        <div className={styles.overlay}>
+          <BouncingBalls />
+        </div>
+      )}
     </div>
   );
 }
