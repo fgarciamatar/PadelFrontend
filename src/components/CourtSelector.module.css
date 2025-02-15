@@ -8,6 +8,7 @@
     max-width: 600px;       /* Ancho máximo para que no crezca demasiado */
     margin: 1.5em auto;     /* Margen arriba/abajo de 1.5em, centrado horizontalmente */
     overflow-x: hidden;
+    
   
   }
   
@@ -22,12 +23,9 @@
     color: #d1d5db;
     cursor: pointer;
     border: none;
+    border-bottom: 0.1em solid #007bff;
   }
   
-  /* Efecto hover */
-  .button:hover {
-    background-color: #4b5563;
-  }
   
   /* Estilo para la cancha seleccionada */
   .selected {
