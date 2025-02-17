@@ -3,7 +3,8 @@ import img1 from "../assets/1.jpg";
 import img2 from "../assets/2.jpg";
 import img3 from "../assets/3.jpg";
 import team from "../assets/team.jpg";
-import styles from "./../views/Layout.module.css";
+import styles from "./../views/Nosotros.module.css";
+import TextPressure from "../components/TextPressure"
 
 export default function Layout() {
   return (
@@ -38,6 +39,21 @@ export default function Layout() {
           <img src={img3} alt="Cancha de pádel 3" />
         </div>
       </section>
+
+      <div style={{position: 'relative', height: '300px'}}>
+  <TextPressure
+    text="Hello!"
+    flex={true}
+    alpha={false}
+    stroke={false}
+    width={true}
+    weight={true}
+    italic={true}
+    textColor="#ffffff"
+    strokeColor="#ff0000"
+    minFontSize={36}
+  />
+</div>
     </div>
   );
 }

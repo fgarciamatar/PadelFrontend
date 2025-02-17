@@ -1,0 +1,158 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  
+}
+
+.dialog {
+  background-color: #1c2333;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  margin: 10px;
+  border: 1px solid #2a3246;
+  border-bottom: 0.3em solid #007bff;
+}
+
+.header {
+  padding: 20px;
+  border-bottom: 1px solid #2a3246;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.content {
+  padding: 20px;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+  background-color: #252d42;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.infoItem small {
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  font-size: 1.2em;
+}
+
+.infoItem div {
+  color: white;
+  font-size:  1.1em;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  color: #94a3b8;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.label {
+  display: block;
+  color: white;
+  margin-bottom: 8px;
+  font-size:  1.2em;
+}
+
+.input {
+  width: 100%;
+  padding:0.5em 0.2em;
+  background-color: #252d42;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  color: white;
+  font-size:  1.2em;
+}
+
+.input::placeholder {
+  color: #94a3b8;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 12px;
+  background-color:#007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+  background-color: #007bff;
+}
+
+.confirmationModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  border-bottom: 0.2em solid #007bff;
+}
+
+.confirmationModal h2 {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.confirmationModal p {
+  color: #94a3b8;
+  font-size: 1.5rem;
+}
+
+.checkIcon {
+  width: 60px;
+  height: 60px;
+  color: #10b981;
+  margin-bottom: 20px;
+}
+

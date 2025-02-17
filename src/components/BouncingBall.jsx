@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { IoMdTennisball } from "react-icons/io";
 import styles from "./BouncingBall.module.css";
 
-const BALL_COUNT = 8;
+const BALL_COUNT = 5;
 const BALL_SIZE = 30;
 const SPEED = 5; // Velocidad aumentada
 

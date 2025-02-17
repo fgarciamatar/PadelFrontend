@@ -1,12 +1,12 @@
-import { addDays, format, startOfWeek } from "date-fns";
+import { addDays, format } from "date-fns";
 import { es } from "date-fns/locale";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import styles from "./Calendar.module.css"; // Importamos los estilos
 
 export default function Calendar({ selectedDate, onSelectDate }) {
   const today = new Date();
-  const weekStart = startOfWeek(today, { locale: es });
-  const weekDays = Array.from({ length: 7 }, (_, i) => addDays(weekStart, i));
+  // Creamos un arreglo de 7 días empezando desde hoy
+  const weekDays = Array.from({ length: 7 }, (_, i) => addDays(today, i));
 
   return (
     <Container className={styles.container}>
@@ -21,7 +21,9 @@ export default function Calendar({ selectedDate, onSelectDate }) {
             <Button
               key={date.toISOString()}
               variant={selectedDate?.toDateString() === date.toDateString() ? "primary" : "secondary"}
-              className={`${styles.button} ${selectedDate?.toDateString() === date.toDateString() ? styles.buttonPrimary : styles.buttonSecondary}`}
+              className={`${styles.button} ${
+                selectedDate?.toDateString() === date.toDateString() ? styles.buttonPrimary : styles.buttonSecondary
+              }`}
               onClick={() => onSelectDate(date)}
             >
               <span className={styles.dayName}>{format(date, "EEEE", { locale: es })}</span>
@@ -33,5 +35,3 @@ export default function Calendar({ selectedDate, onSelectDate }) {
     </Container>
   );
 }
-
-

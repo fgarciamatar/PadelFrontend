@@ -1,21 +1,20 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Layout from "./views/Layout"
-import Navbar from "./components/Navbar"
-import Reservar from "./views/Reservar"
-import BouncingBall from "./components/BouncingBall"
-
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Landing from "./views/Landing";
+import Nosotros from "./views/Nosotros";
+import Reservar from "./views/Reservar";
 
 function App() {
   return (
     <Router>
-      <Navbar/>
+      <Navbar />
       <Routes>
-      <Route path="/" element={<BouncingBall />} />
-        <Route path="/nosotros" element={<Layout />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/reservar" element={<Reservar />} />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

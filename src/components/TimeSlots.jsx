@@ -1,13 +1,18 @@
 import { Clock } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTurnosAction } from "../Redux/TurnosActions";
+import ReservationDialog from "./Reservation_dialog"; // Asegúrate de ajustar la ruta
 import styles from "./TimeSlots.module.css";
 
 export default function TimeSlots({ selectedDate, selectedCourt }) {
   const dispatch = useDispatch();
   const { turnos, loading, error } = useSelector((state) => state.turnos);
+
+  // Estado para controlar la apertura del dialog y el horario seleccionado
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedTime, setSelectedTime] = useState("");
 
   // Se dispara la acción para obtener los turnos
   useEffect(() => {
@@ -49,6 +54,18 @@ export default function TimeSlots({ selectedDate, selectedCourt }) {
   if (loading) return <p>Cargando turnos...</p>;
   if (error) return <p>Error: {error}</p>;
 
+  // Función que se dispara al hacer clic en "Reservar"
+  const handleReserveClick = (slot) => {
+    setSelectedTime(slot.start);
+    setDialogOpen(true);
+  };
+
+  // Función para cerrar el dialog
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+    setSelectedTime("");
+  };
+
   return (
     <div className={styles.container}>
       <h3>
@@ -69,7 +86,9 @@ export default function TimeSlots({ selectedDate, selectedCourt }) {
           return (
             <div
               key={slot.start}
-              className={`${styles.timeSlot} ${reservado ? styles.notAvailable : ""}`}
+              className={`${styles.timeSlot} ${
+                reservado ? styles.notAvailable : ""
+              }`}
             >
               <div className={styles.timeSlotInfo}>
                 <Clock className={styles.timeSlotIcon} />
@@ -78,9 +97,13 @@ export default function TimeSlots({ selectedDate, selectedCourt }) {
                   <div className={styles.timeSlotSubText}>{textoEstado}</div>
                 </div>
               </div>
-              {/* Solo se muestra el botón si el turno está disponible */}
+              {/* Se muestra el botón solo si el turno está disponible */}
               {!reservado && (
-                <Button variant="outline-primary" className={styles.reserveButton}>
+                <Button
+                  variant="outline-primary"
+                  className={styles.reserveButton}
+                  onClick={() => handleReserveClick(slot)}
+                >
                   Reservar
                 </Button>
               )}
@@ -88,6 +111,14 @@ export default function TimeSlots({ selectedDate, selectedCourt }) {
           );
         })}
       </div>
+      {/* Dialog de reserva */}
+      <ReservationDialog
+        isOpen={dialogOpen}
+        onClose={handleDialogClose}
+        date={selectedDate} // Debe ser un objeto Date
+        court={selectedCourt}
+        time={selectedTime}
+      />
     </div>
   );
 }
