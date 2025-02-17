@@ -7,7 +7,7 @@ import Reservar from "./views/Reservar";
 function App() {
   return (
     <Router>
-      <Navbar />
+  {location.pathname !== "/" && <Navbar />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/nosotros" element={<Nosotros />} />
