@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 
-export default function Navbar() {
+export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
